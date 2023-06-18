@@ -2,7 +2,7 @@
 using namespace std;
 
 int getBit(int n,int pos) {
-    return ((n & ((1 << pos)!=0)));
+    return (((n & (1 << pos)) !=0));
 }
 
 int setBit(int n,int pos) {
