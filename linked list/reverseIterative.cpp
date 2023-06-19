@@ -37,12 +37,28 @@ void display(node *head) {
     cout << "NULL" << endl;
 }
 
-// method-1: iterative
+node* reverse(node* &head) {
+    node* prevptr = NULL;
+    node* currptr = head;
+    node* nextptr;
+    while(currptr!=NULL) {
+        nextptr = currptr->next;
+        currptr->next = prevptr;
+        prevptr = currptr;
+        currptr = nextptr;
+    }
+    return prevptr;
+}
 
 int main() {
     node *head = NULL;
     for (int i = 1; i <= 5; i++) {
         insertAtTail(head, i);
     }
+    cout << "Linked list : " << endl;
+    display(head);
+    node* newHead = reverse(head);
+    cout << "Reverse of the list : " <<endl;
+    display(newHead);
     return 0;
 }
